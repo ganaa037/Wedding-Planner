@@ -7,7 +7,7 @@ console.log(process.env.MONGO_URI);
 
 export const connectMongoDB = async () => {
   try {
-    await connect(uri);
+    await connect(uri!);
     console.log("connected to db");
   } catch (error) {
     console.error(error, "error");
