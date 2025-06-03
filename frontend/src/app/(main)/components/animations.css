@@ -1,0 +1,182 @@
+/* Container styles */
+.carousel-container {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    margin: 5rem auto;
+    overflow: hidden;
+    border-radius: 1.25rem; /* 20px */
+    box-shadow: 0 30px 50px #dbdbdb;
+    background-color: #f3f4f6; /* Tailwind gray-100 */
+    font-family: system-ui, sans-serif;
+  }
+  
+  /* Main slide background */
+  .slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 30px 50px #505050;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    color: #eee;
+  }
+  
+  /* Content overlay on main slide */
+  .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 300px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1.25rem; /* 20px */
+    border-radius: 0.625rem; /* 10px */
+  }
+  
+  .slide-content h2 {
+    font-size: 2.5rem; /* 40px */
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.625rem; /* 10px */
+  }
+  
+  .slide-content p {
+    margin-bottom: 1.25rem; /* 20px */
+  }
+  
+  .see-more-btn {
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    border-radius: 0.3125rem; /* 5px */
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Navigation buttons wrapper */
+  .buttons-wrapper {
+    position: absolute;
+    bottom: 1.25rem; /* 20px */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 20;
+  }
+  
+  /* Buttons */
+  .nav-btn {
+    width: 2.5rem;  /* 40px */
+    height: 2.25rem; /* 36px */
+    border: 1px solid black;
+    border-radius: 0.5rem; /* 8px */
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-btn:hover {
+    background-color: #9ca3af; /* Tailwind gray-400 */
+    color: white;
+  }
+  
+  .nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Thumbnails container */
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    overflow: hidden;
+    height: 500px;
+    margin-top: 45px;
+  }
+  
+  /* Thumbnail images */
+  .thumbnail {
+    width: 160px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 1rem; /* 16px */
+    border: 4px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .thumbnail:hover {
+    border-color: white;
+  }
+  
+  /* Fade-in animation for text */
+  @keyframes slow-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  
+  .animate-slow-fade-in {
+    animation: slow-fade-in 1s ease-in-out forwards;
+  }
+  
+  /* Instant fade-out for text (no animation) */
+  .instant-fade-out {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    filter: blur(15px) !important;
+    transition: none !important;
+  }
+  
+  /* Big image fade */
+  .fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  /* Slow fade-in animation for text */
+  @keyframes slow-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  
+  .animate-slow-fade-in {
+    animation: slow-fade-in 1s ease forwards;
+  }
+  
+  /* Instant fade-out (no animation, immediate) */
+  .instant-fade-out {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    filter: blur(15px) !important;
+    transition: none !important;
+  }
+  
