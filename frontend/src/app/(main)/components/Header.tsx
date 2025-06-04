@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import "@fontsource/great-vibes";
 
 interface HeaderProps {
   isDay: boolean
@@ -30,9 +31,9 @@ function Header({ isDay }: HeaderProps) {
   const imageBaseStyle = "w-full h-full object-cover absolute top-0 left-0 transition-all duration-700 ease-in-out"
 
   return (
-    <>
+    <div>
       {/* Background Image Block */}
-      <div className={`w-full min-h-[100vh] relative overflow-hidden transition-all duration-700 ${
+      <div className={`w-full min-h-[75vh] relative overflow-hidden transition-all duration-700 ${
         isDay ? "bg-[#fefcf6]" : "bg-[#0a0a0f]"
       }`}>
         <img
@@ -94,27 +95,32 @@ function Header({ isDay }: HeaderProps) {
             />
           ))}
         </div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-30 text-center">
+  <h2 className={`text-4xl md:text-[80px] font-serif ${isDay ? "text-white" : "text-white"}`}>
+    {isDay ? "Perfect Day" : "Magical Evening"}
+  </h2>
+  <p className={`text-xl md:text-[30px] font-light mt-2 ${isDay ? "text-gray-300" : "text-gray-300"}`}>
+    {isDay ? "Where dreams come true" : "Under the stars"}
+  </p>
+</div>
+
       </div>
 
       {/* Main Content Block — Now Under Image */}
-      <div className={`w-full px-6 md:px-10 py-16 text-center transition-all duration-700 ${
+      <div className={` w-full px-6 md:px-10 py-16 text-center transition-all duration-700 ${
         isDay ? "bg-[#fefcf6]" : "bg-[#0a0a0f]"
       }`}>
-        <div className="max-w-2xl mx-auto">
-          <h1 className={`text-5xl md:text-7xl font-serif mb-4 ${isDay ? "text-gray-800" : "text-white drop-shadow-2xl"}`}>
+        
+        <div className="max-w-full mx-auto">
+          <h1 className={`font-[Great_Vibes] text-5xl md:text-7xl  mb-4 ${isDay ? "text-gray-800" : "text-white drop-shadow-2xl"}`}>
             {isDay ? "Good Morning, Lovebirds!" : "Evening Romance Awaits"}
           </h1>
-          <p className={`text-lg md:text-xl font-light italic mb-4 ${isDay ? "text-gray-700" : "text-gray-200/90"}`}>
+          <p className={` font-[Great_Vibes] text-lg md:text-[40px] font-light italic mb-4 ${isDay ? "text-gray-700" : "text-gray-200/90"}`}>
             {isDay
               ? "The sun is shining, the flowers are blooming, and it's the perfect time to dream up your daytime wedding. Let’s plan something light, bright, and full of joy — from garden vows to brunch receptions!"
               : "The stars are coming out and so is the magic. Let’s plan a dreamy evening celebration, with glowing candles, moonlit dancing, and a night to remember forever."}
           </p>
-          <h2 className={`text-4xl md:text-5xl font-serif mt-8 ${isDay ? "text-gray-800" : "text-white"}`}>
-            {isDay ? "Perfect Day" : "Magical Evening"}
-          </h2>
-          <p className={`text-xl md:text-2xl font-light mt-2 ${isDay ? "text-gray-700" : "text-gray-300"}`}>
-            {isDay ? "Where dreams come true" : "Under the stars"}
-          </p>
+         
         </div>
 
         {/* Callout Card */}
@@ -137,7 +143,7 @@ function Header({ isDay }: HeaderProps) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

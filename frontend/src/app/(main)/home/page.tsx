@@ -17,7 +17,7 @@ export default function Home() {
     <div className={`min-h-screen font-sans transition-colors duration-700 ${isDay ? "bg-[#fefcf6]" : "bg-[#0f0f1a]"}`}>
       <Navigation isDay={isDay} onToggleTheme={handleToggleTheme} />
 
-      <main className="min-h-screen ">
+      <main className="min-h-[80vh] ">
         <Header isDay={isDay} />
 
      
@@ -25,7 +25,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8">{isDay ? "Wedding Venues" : "Evening Celebrations"}</h2>
          
         
-           <Carousel />
+           <Carousel isDay={isDay}/>
         
         </div>
       </main>

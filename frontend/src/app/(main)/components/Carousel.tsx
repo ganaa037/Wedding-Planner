@@ -5,6 +5,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
+interface HeaderProps {
+  isDay: boolean
+}
 // Wedding places data with high-quality landscape images
 const weddingPlaces = [
   {
@@ -12,53 +15,53 @@ const weddingPlaces = [
     title: "BOHO WEDDING",
     description:
       "Rustic outdoor venue with natural elements, surrounded by mountains and open fields for a free-spirited celebration.",
-    image: "w1.jpg",
+    image1: "BohoD.png",
+    image2: "BohoN.png",
   },
   {
     id: 2,
     title: "CLASSIC WEDDING",
     description:
       "Elegant historic mansion with manicured gardens, grand ballrooms, and timeless architecture for a sophisticated celebration.",
-    image: "ClassicW.png",
+    image1: "ClassicD.png",
+    image2: "ClassicN.png",
   },
   {
     id: 3,
     title: "GLAMOROUS WEDDING",
     description:
       "Luxurious resort with panoramic views, crystal chandeliers, and opulent décor for an unforgettable fairy tale experience.",
-    image: "w3.jpg",
+      image1: "GlamorousD.png",
+      image2: "GlamorousN.png",
   },
   {
     id: 4,
     title: "ROMANTIC WEDDING",
     description:
       "Enchanting garden venue with blooming flowers, soft lighting, and intimate spaces perfect for celebrating your love story.",
-    image: "w4.jpg",
+      image1: "RomanticD.png",
+      image2: "RomanticN.png",
   },
   {
     id: 5,
     title: "VINTAGE WEDDING",
     description:
       "Charming countryside estate with antique details, historic architecture, and timeless beauty for a nostalgic celebration.",
-    image: "/images/vintage-wedding.jpg",
+      image1: "VintageD.png",
+      image2: "VintageN.png",
   },
+  
   {
     id: 6,
-    title: "SMALL BUDGET WEDDING",
-    description:
-      "Beautiful community venue with natural surroundings, customizable spaces, and affordable options for an intimate gathering.",
-    image: "/images/budget-wedding.jpg",
-  },
-  {
-    id: 7,
     title: "WHIMSICAL WEDDING",
     description:
       "Unique venue with artistic elements, colorful gardens, and creative spaces for a playful and imaginative celebration.",
-    image: "/images/whimsical-wedding.jpg",
+      image1: "WhimsicalD.png",
+      image2: "WhimsicalN.png",
   },
 ]
 
-export const Carousel =()=> {
+export const Carousel =({ isDay }: HeaderProps)=> {
   const [currentMainIndex, setCurrentMainIndex] = useState(0)
   const [animateText, setAnimateText] = useState(true)
   const [isTransitioning, setIsTransitioning] = useState(false)
@@ -91,12 +94,13 @@ export const Carousel =()=> {
 
   // Preload next image
   useEffect(() => {
-    // Preload the next image
     const nextIndex = (currentMainIndex + 1) % weddingPlaces.length
     const img = new Image()
-    img.src = weddingPlaces[nextIndex].image
+    img.src = isDay
+      ? (weddingPlaces[nextIndex].image1 || "/placeholder.svg")
+      : (weddingPlaces[nextIndex].image2 || "/placeholder.svg")
     nextImageRef.current = img
-  }, [currentMainIndex])
+  }, [currentMainIndex, isDay])
 
   // Trigger animations when main image changes
   useEffect(() => {
@@ -171,7 +175,6 @@ export const Carousel =()=> {
   }
 
   const currentWedding = weddingPlaces[currentMainIndex]
-
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Main background image with smooth animation */}
@@ -180,7 +183,7 @@ export const Carousel =()=> {
           "absolute inset-0 bg-cover bg-center object-cover ",
           isTransitioning ? "animate-fade-in-bg" : "transition-all duration-1000 ease-in-out",
         )}
-        style={{ backgroundImage: `url(${currentWedding.image})` }}
+        style={isDay ? { backgroundImage: `url(${currentWedding.image1})` } : { backgroundImage: `url(${currentWedding.image2})` }}
         key={currentMainIndex} // Force re-render for animation
       >
         {/* No dark overlay for bright, clear images */}
@@ -273,11 +276,12 @@ export const Carousel =()=> {
                   onClick={() => handleThumbnailClick(imageIndex, index)}
                 >
                   <img
-                    src={weddingPlaces[imageIndex].image || "/placeholder.svg"}
-                    alt={weddingPlaces[imageIndex].title}
-                    className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110"
-                    key={`img-${imageIndex}`} // Force re-render for new images
-                  />
+  src={isDay ? weddingPlaces[imageIndex].image1 || "/placeholder.svg" : weddingPlaces[imageIndex].image2 || "/placeholder.svg"}
+  alt={weddingPlaces[imageIndex].title}
+  className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110"
+  key={`img-${imageIndex}`}
+/>
+
                   {/* Simple hover overlay - only titles, no description */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hover-card-overlay">
                     <div className="absolute inset-0 flex flex-col justify-end p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6">
