@@ -4,7 +4,7 @@ import { useState } from "react"
 import Navigation from "../components/Navigation"
 import Header from "../components/Header"
 import { Carousel } from "../components/Carousel"
-import { Cards } from "../components/Cards"
+
 
 
 
@@ -33,7 +33,7 @@ export default function Home() {
         </div>
        
         </div>
-        <Cards />
+      
       </main>
     </div>
   )
