@@ -4,6 +4,9 @@ import { useState } from "react"
 import Navigation from "../components/Navigation"
 import Header from "../components/Header"
 import { Carousel } from "../components/Carousel"
+import { Cards } from "../components/Cards"
+
+
 
 
 export default function Home() {
@@ -14,20 +17,23 @@ export default function Home() {
   }
 
   return (
-    <div className={`min-h-screen font-sans transition-colors duration-700 ${isDay ? "bg-[#fefcf6]" : "bg-[#0f0f1a]"}`}>
+    <div className={`min-h-screen font-sans transition-colors duration-700 ${isDay ? "bg-[#fefcf6]" : "bg-[#0a0a0f]"}`}>
       <Navigation isDay={isDay} onToggleTheme={handleToggleTheme} />
 
       <main className="min-h-[80vh] ">
         <Header isDay={isDay} />
 
-     
-        <div className={`py-10 px-6 transition-colors duration-700 ${isDay ? "text-gray-800" : "text-gray-200"}`}>
-          <h2 className="text-3xl font-bold text-center mb-8">{isDay ? "Wedding Venues" : "Evening Celebrations"}</h2>
+     <div className="flex justify-center">
+        <div className={`py-10 px-6 transition-colors duration-700  ${isDay ? "text-gray-800" : "text-gray-200"}`}>
+         
          
         
            <Carousel isDay={isDay}/>
         
         </div>
+       
+        </div>
+        <Cards />
       </main>
     </div>
   )

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "@fontsource/great-vibes";
+import '@fontsource/space-grotesk'
 
 interface HeaderProps {
   isDay: boolean
@@ -96,10 +97,10 @@ function Header({ isDay }: HeaderProps) {
           ))}
         </div>
         <div className="absolute inset-0 flex flex-col items-center justify-center z-30 text-center">
-  <h2 className={`text-4xl md:text-[80px] font-serif ${isDay ? "text-white" : "text-white"}`}>
+  <h2 className={`text-6xl md:text-[90px] font-serif ${isDay ? "text-white" : "text-white"}`}>
     {isDay ? "Perfect Day" : "Magical Evening"}
   </h2>
-  <p className={`text-xl md:text-[30px] font-light mt-2 ${isDay ? "text-gray-300" : "text-gray-300"}`}>
+  <p className={`text-3xl md:text-[45px] font-[Great_Vibes] mt-2 ${isDay ? "text-gray-200" : "text-gray-300"}`}>
     {isDay ? "Where dreams come true" : "Under the stars"}
   </p>
 </div>
@@ -107,13 +108,13 @@ function Header({ isDay }: HeaderProps) {
       </div>
 
       {/* Main Content Block — Now Under Image */}
-      <div className={` w-full px-6 md:px-10 py-16 text-center transition-all duration-700 ${
+      <div className={` w-full px-6 md:px-10 pt-30 text-center transition-all duration-700 ${
         isDay ? "bg-[#fefcf6]" : "bg-[#0a0a0f]"
       }`}>
         
-        <div className="max-w-full mx-auto">
+        <div className="max-w-full mx-auto ">
           <h1 className={`font-[Great_Vibes] text-5xl md:text-7xl  mb-4 ${isDay ? "text-gray-800" : "text-white drop-shadow-2xl"}`}>
-            {isDay ? "Good Morning, Lovebirds!" : "Evening Romance Awaits"}
+            {isDay ? "Welcome, Lovebirds!" : "Evening Romance Awaits"}
           </h1>
           <p className={` font-[Great_Vibes] text-lg md:text-[40px] font-light italic mb-4 ${isDay ? "text-gray-700" : "text-gray-200/90"}`}>
             {isDay
@@ -124,7 +125,7 @@ function Header({ isDay }: HeaderProps) {
         </div>
 
         {/* Callout Card */}
-        <div className="mt-12 flex justify-center">
+        <div className=" flex justify-center py-25 ">
           <div className={`max-w-3xl text-center text-sm md:text-base font-normal px-6 py-8 rounded-lg shadow-md ${
             isDay ? "bg-white text-gray-900" : "bg-gray-800/90 text-gray-100 border border-white/20"
           }`}>

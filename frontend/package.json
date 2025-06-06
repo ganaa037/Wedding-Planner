@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/great-vibes": "^5.2.5",
+    "@fontsource/space-grotesk": "^5.2.8",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
     "@tailwindcss/typography": "^0.5.16",
