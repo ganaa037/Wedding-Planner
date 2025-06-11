@@ -150,7 +150,7 @@ export const Carousel = ({ isDay }: HeaderProps) => {
   const currentWedding = weddingPlaces[currentMainIndex]
 
   return (
-    <div className="relative h-[80vh] w-[80vw] overflow-hidden rounded-[40px]">
+    <div className="relative h-[70vh] w-[80vw] overflow-hidden rounded-[40px]">
       <div
         className={cn(
           "absolute inset-0 bg-cover bg-center object-cover",

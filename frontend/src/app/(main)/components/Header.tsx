@@ -98,52 +98,86 @@ function Header({ isDay }: HeaderProps) {
         </div>
         <div className="absolute inset-0 flex flex-col items-center justify-center z-30 text-center">
   <h2 className={`text-6xl md:text-[90px] font-serif ${isDay ? "text-white" : "text-white"}`}>
-    {isDay ? "Perfect Day" : "Magical Evening"}
+    {isDay ? "Welcome, Lovebirds!" : "Magical Evening"}
   </h2>
   <p className={`text-3xl md:text-[45px] font-[Great_Vibes] mt-2 ${isDay ? "text-gray-200" : "text-gray-300"}`}>
-    {isDay ? "Where dreams come true" : "Under the stars"}
+    {isDay ? "Where dreams come true" : "Evening Romance Awaits"}
   </p>
 </div>
 
       </div>
 
-      {/* Main Content Block — Now Under Image */}
-      <div className={` w-full px-6 md:px-10 pt-30 text-center transition-all duration-700 ${
-        isDay ? "bg-[#fefcf6]" : "bg-[#0a0a0f]"
-      }`}>
-        
-        <div className="max-w-full mx-auto ">
-          <h1 className={`font-[Great_Vibes] text-5xl md:text-7xl  mb-4 ${isDay ? "text-gray-800" : "text-white drop-shadow-2xl"}`}>
-            {isDay ? "Welcome, Lovebirds!" : "Evening Romance Awaits"}
-          </h1>
-          <p className={` font-[Great_Vibes] text-lg md:text-[40px] font-light italic mb-4 ${isDay ? "text-gray-700" : "text-gray-200/90"}`}>
-            {isDay
-              ? "The sun is shining, the flowers are blooming, and it's the perfect time to dream up your daytime wedding. Let’s plan something light, bright, and full of joy — from garden vows to brunch receptions!"
-              : "The stars are coming out and so is the magic. Let’s plan a dreamy evening celebration, with glowing candles, moonlit dancing, and a night to remember forever."}
-          </p>
-         
-        </div>
+    
+    {/* Callout Card */}
+<div className="w-full mx-auto px-6 md:px-10 py-16 md:py-24">
+  <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10 relative">
+    
+    {/* Left Image (visually lower) */}
+    <div className="relative top-10 md:top-20">
+      <img
+        src={isDay ? "/wedding day.png" : "/weddingnight.png"}
+        alt="Left decorative"
+        className="w-[220px] md:w-[400px] h-auto"
+      />
+    </div>
 
-        {/* Callout Card */}
-        <div className=" flex justify-center py-25 ">
-          <div className={`max-w-3xl text-center text-sm md:text-base font-normal px-6 py-8 rounded-lg shadow-md ${
-            isDay ? "bg-white text-gray-900" : "bg-gray-800/90 text-gray-100 border border-white/20"
-          }`}>
-            <h2 className="text-xl font-semibold mb-3">
-              {isDay ? "Plan the Perfect Daytime Wedding" : "Create a Magical Evening Celebration"}
-            </h2>
-            <p className="mb-2">
-              {isDay
-                ? "We’re here to help you plan a wedding that’s light, joyful, and filled with sunshine and laughter. Garden vows, brunch receptions, and bright blooms await!"
-                : "We’re here to help you plan a wedding that’s enchanting and elegant — think candles, fairy lights, and unforgettable evening magic."}
-            </p>
-            <p className="text-xs italic mt-2">
-              ❗ Weddy is just a helper — not a booking site. Looking for pros?{' '}
-              <a href="#" className="underline font-medium hover:text-pink-400">Click here</a> 💗
-            </p>
-          </div>
-        </div>
-      </div>
+    {/* Text Content */}
+    <div
+      className={`max-w-3xl text-center text-base md:text-lg font-normal px-4 md:px-6 ${
+        isDay ? "text-gray-900" : "text-gray-100"
+      }`}
+    >
+      <h2 className="text-3xl md:text-5xl font-bold mb-5">
+        {isDay
+          ? "Plan the Perfect Daytime Wedding"
+          : "Create a Magical Evening Celebration"}
+      </h2>
+      <p className="mb-3 leading-relaxed">
+        {isDay
+          ? "We’re here to help you plan a wedding that’s light, joyful, and filled with sunshine and laughter. Garden vows, brunch receptions, and bright blooms await!"
+          : "We’re here to help you plan a wedding that’s enchanting and elegant — think candles, fairy lights, and unforgettable evening magic."}
+      </p>
+      <p className="text-xs italic mt-4">
+        ❗ Weddy is just a helper — not a booking site. Looking for pros?{" "}
+        <a href="#" className="font-medium hover:underline">Click here</a>
+      </p>
+    </div>
+
+    {/* Right Image (visually higher) */}
+    <div className="relative -top-10 md:-top-20">
+      <img
+        src={isDay ? "/wedding day 2.png" : "/weddingnight2.png"}
+        alt="Right decorative"
+        className="w-[300px] md:w-[400px] h-auto"
+      />
+    </div>
+  </div>
+</div>
+
+
+   
+
+
+
+<div className={`w-full px-[20px] pt-30 text-center transition-all duration-700 ${
+  isDay ? "bg-[#fefcf6]" : "bg-[#0a0a0f]"
+}`}>
+  <div className="max-w-full mx-auto">
+    <h1 className={`font-[Great_Vibes] text-5xl md:text-7xl mb-4 ${
+      isDay ? "text-gray-800" : "text-white drop-shadow-2xl"
+    }`}>
+      {isDay ? "Perfect Day" : "Under the stars"}
+    </h1>
+    <p className={`font-[Great_Vibes] text-lg md:text-[40px] font-light italic mb-4 ${
+      isDay ? "text-gray-700" : "text-gray-200/90"
+    }`}>
+      {isDay
+        ? "The sun is shining, the flowers are blooming, and it's the perfect time to dream up your daytime wedding. Let’s plan something light, bright, and full of joy — from garden vows to brunch receptions!"
+        : "The stars are coming out and so is the magic. Let’s plan a dreamy evening celebration, with glowing candles, moonlit dancing, and a night to remember forever."}
+    </p>
+  </div>
+</div>
+
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { useState } from "react"
 import Navigation from "../components/Navigation"
 import Header from "../components/Header"
 import { Carousel } from "../components/Carousel"
+import { Card } from "../components/Card"
 
 
 
@@ -29,6 +30,12 @@ export default function Home() {
          
         
            <Carousel isDay={isDay}/>
+           <Card image="https://via.placeholder.com/300x382"
+          name="Sample Suit"
+          price={200}
+          about="Elegant black formal wear"
+          id="1"
+          isDay={isDay} />
         
         </div>
        
