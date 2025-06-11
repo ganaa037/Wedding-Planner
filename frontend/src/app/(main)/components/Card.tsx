@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Plus } from "lucide-react";
 
@@ -8,6 +9,7 @@ interface CardProps {
   about: string;
   id: string;
   isDay: boolean;
+  onClick: () => void;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -17,6 +19,7 @@ export const Card: React.FC<CardProps> = ({
   about,
   id,
   isDay,
+  onClick,
 }) => {
   return (
     <div
@@ -26,7 +29,10 @@ export const Card: React.FC<CardProps> = ({
     >
       <div className="relative h-[400px]">
         <img src={image} className="w-full h-full object-cover" alt={name} />
-        <button className="w-[44px] h-[44px] flex items-center justify-center rounded-full absolute right-5 bottom-5 bg-white hover:bg-gray-200 transition">
+        <button
+          onClick={onClick}
+          className="w-[44px] h-[44px] flex items-center justify-center rounded-full absolute right-5 bottom-5 bg-white hover:bg-gray-200 transition"
+        >
           <Plus
             className={`w-[16px] h-[16px] ${
               isDay ? "text-yellow-400" : "text-purple-400"
@@ -36,14 +42,26 @@ export const Card: React.FC<CardProps> = ({
       </div>
       <div className="flex flex-col px-[20px] gap-[2px] py-[10px]">
         <div className="flex justify-between items-center">
-          <span className={`text-[20px] font-semibold ${isDay ? "text-black" : "text-white"}`}>
+          <span
+            className={`text-[20px] font-semibold ${
+              isDay ? "text-black" : "text-white"
+            }`}
+          >
             {name}
           </span>
-          <span className={`text-[18px] font-semibold ${isDay ? "text-black" : "text-white"}`}>
+          <span
+            className={`text-[18px] font-semibold ${
+              isDay ? "text-black" : "text-white"
+            }`}
+          >
             ${price}
           </span>
         </div>
-        <p className={`text-[13px] font-normal ${isDay ? "text-black" : "text-white"}`}>
+        <p
+          className={`text-[13px] font-normal ${
+            isDay ? "text-black" : "text-white"
+          }`}
+        >
           {about}
         </p>
       </div>
